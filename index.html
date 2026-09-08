@@ -1,14 +1,383 @@
-<html>
-<head> 
-  <title>hello world</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jack Goh Pin Kai — RTIS @ DigiPen</title>
+<meta name="description" content="Portfolio of Jack Goh Pin Kai, a Real-Time Interactive Simulation student at DigiPen Institute of Technology / SIT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b0e14;
+    --bg-alt: #10141d;
+    --card: #151a24;
+    --border: #232a38;
+    --text: #e7ebf3;
+    --text-dim: #9aa4b7;
+    --accent: #5eead4;
+    --accent-2: #a78bfa;
+    --accent-3: #f472b6;
+    --max: 1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',-apple-system,Segoe UI,sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3,.logo{font-family:'Poppins',sans-serif;}
+  a{color:var(--accent);}
+  img{max-width:100%;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(11,14,20,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
+  .logo{font-weight:700; font-size:1.15rem; color:var(--text); text-decoration:none; letter-spacing:.5px;}
+  .logo span{color:var(--accent);}
+  .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .navlinks a{color:var(--text-dim); text-decoration:none; font-weight:500; font-size:.95rem; transition:color .2s;}
+  .navlinks a:hover{color:var(--accent);}
+
+  .hero{
+    padding:110px 0 90px;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(94,234,212,.12), transparent 40%),
+      radial-gradient(circle at 80% 30%, rgba(167,139,250,.12), transparent 40%);
+    text-align:center;
+  }
+  .eyebrow{
+    display:inline-block; padding:6px 14px; border:1px solid var(--border);
+    border-radius:999px; font-size:.8rem; color:var(--accent); letter-spacing:1px;
+    text-transform:uppercase; margin-bottom:22px;
+  }
+  .hero h1{font-size:clamp(2.1rem, 5vw, 3.4rem); margin:0 0 14px; color:var(--text);}
+  .hero h1 em{font-style:normal; background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .hero p{max-width:640px; margin:0 auto 32px; color:var(--text-dim); font-size:1.05rem;}
+  .btnrow{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  .btn{
+    padding:12px 26px; border-radius:8px; text-decoration:none; font-weight:600; font-size:.95rem;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--accent); color:#06231e; box-shadow:0 6px 20px rgba(94,234,212,.25);}
+  .btn-outline{border:1px solid var(--border); color:var(--text);}
+
+  section{padding:80px 0;}
+  section:nth-child(even){background:var(--bg-alt);}
+  .sec-title{font-size:2rem; margin:0 0 8px;}
+  .sec-sub{color:var(--text-dim); margin:0 0 44px; max-width:600px;}
+
+  .grid{display:grid; gap:20px;}
+  .cols-2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+  .cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+  .cols-4{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));}
+
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:14px; padding:26px;
+  }
+  .card h3{margin-top:0; font-size:1.1rem; color:var(--text);}
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
+  .tag{
+    background:rgba(94,234,212,.08); color:var(--accent); border:1px solid rgba(94,234,212,.25);
+    padding:4px 10px; border-radius:6px; font-size:.78rem; font-weight:600;
+  }
+  ul.plain{margin:0; padding:0; list-style:none;}
+  ul.plain li{padding:6px 0; color:var(--text-dim); font-size:.92rem;}
+
+  .timeline-item{border-left:2px solid var(--border); padding-left:20px; position:relative; margin-bottom:28px;}
+  .timeline-item::before{
+    content:''; position:absolute; left:-7px; top:4px; width:12px; height:12px;
+    border-radius:50%; background:var(--accent-2); box-shadow:0 0 0 4px rgba(167,139,250,.15);
+  }
+  .timeline-item .role{color:var(--text-dim); font-size:.85rem; margin:2px 0 8px;}
+
+  .proj-card{background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; margin-bottom:30px;}
+  .proj-head{padding:26px 26px 0;}
+  .proj-body{padding:26px;}
+  .proj-media{padding:0 26px 26px; display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start;}
+  .proj-media img{border-radius:10px; border:1px solid var(--border); max-height:340px;}
+  .proj-media embed{border-radius:10px; border:1px solid var(--border); flex:1; min-width:240px;}
+  .proj-date{float:right; color:var(--text-dim); font-size:.85rem; font-weight:500;}
+  .proj-role{color:var(--accent-2); font-weight:600; font-size:.9rem; margin:4px 0 14px;}
+
+  .blog-card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:28px; margin-bottom:22px;}
+  .blog-meta{color:var(--text-dim); font-size:.82rem; text-transform:uppercase; letter-spacing:.5px; margin-bottom:10px;}
+  .blog-card h3{margin:0 0 12px; font-size:1.25rem;}
+  .blog-card p{color:var(--text-dim); margin:0 0 10px;}
+
+  footer{padding:60px 0 40px; text-align:center; border-top:1px solid var(--border);}
+  footer h2{margin-bottom:8px;}
+  .contact-row{display:flex; gap:24px; justify-content:center; flex-wrap:wrap; margin:22px 0; color:var(--text-dim);}
+  .contact-row a{color:var(--text); text-decoration:none; font-weight:500;}
+  .contact-row a:hover{color:var(--accent);}
+  .fine{color:var(--text-dim); font-size:.82rem; margin-top:30px;}
+
+  @media (max-width:640px){
+    .navlinks{display:none;}
+    section{padding:56px 0;}
+  }
+</style>
 </head>
-  <body>
-    <h1>Projects</h1>
-    <h2>Events Manager Application</h2>
-    <p>Designed an event management system where users ca view, host and register</p>
-    <img src="poster.jpg" alt="poster" style="width:200px;height:400px;">
-    <embed src="Final Report.pdf" type="application/pdf" width="30%" height="200px" />
-    <h2>Pulse Protocol</h2>
-    <p></p>
-  </body>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo">Jack <span>Goh</span></a>
+    <ul class="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div id="top"></div>
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">DigiPen Institute of Technology &times; SIT</span>
+    <h1>Jack Goh Pin Kai<br><em>Real-Time Interactive Simulation</em></h1>
+    <p>Computer Science undergraduate specialising in graphics programming, game engine
+       architecture, and interactive software — currently building a custom C++/OpenGL
+       engine as part of my DigiPen project module.</p>
+    <div class="btnrow">
+      <a class="btn btn-primary" href="resume.pdf" target="_blank">Download Resume</a>
+      <a class="btn btn-outline" href="#projects">View Projects</a>
+      <a class="btn btn-outline" href="#blog">Read the Blog</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2 class="sec-title">About Me</h2>
+    <p class="sec-sub">Professional summary, skills, and education.</p>
+
+    <div class="grid cols-2" style="margin-bottom:44px;">
+      <div class="card">
+        <h3>Summary</h3>
+        <p style="color:var(--text-dim);">Computer Science undergraduate specialising in real-time
+        interactive simulation, graphics programming, and software development. Experienced in
+        C++, OpenGL, Java, C#, Python, and web technologies, with project experience in game
+        engine development, ECS architecture, rendering systems, and interactive applications.</p>
+      </div>
+      <div class="card">
+        <h3>Languages</h3>
+        <ul class="plain">
+          <li>🇬🇧 English — Written &amp; Spoken</li>
+          <li>🇨🇳 Mandarin — Written &amp; Spoken</li>
+          <li>🇯🇵 Japanese — Written &amp; Spoken</li>
+          <li>🇪🇸 Spanish — Spoken (Elementary)</li>
+          <li>🇲🇾 Malay — Spoken (Elementary)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:18px;">Skills</h3>
+    <div class="grid cols-4" style="margin-bottom:44px;">
+      <div class="card">
+        <h3 style="font-size:.95rem; color:var(--accent);">Programming</h3>
+        <div class="tag-row">
+          <span class="tag">C++</span><span class="tag">C#</span><span class="tag">Java</span>
+          <span class="tag">Python</span><span class="tag">PHP</span><span class="tag">SQL</span>
+          <span class="tag">HTML</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="font-size:.95rem; color:var(--accent);">Graphics / Game Dev</h3>
+        <div class="tag-row">
+          <span class="tag">OpenGL</span><span class="tag">GLSL</span><span class="tag">ImGui</span>
+          <span class="tag">ECS</span><span class="tag">JSON Serialization</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="font-size:.95rem; color:var(--accent);">Tools</h3>
+        <div class="tag-row">
+          <span class="tag">Git</span><span class="tag">Visual Studio</span><span class="tag">MS Office</span>
+          <span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">Premiere Pro</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="font-size:.95rem; color:var(--accent);">Other</h3>
+        <div class="tag-row">
+          <span class="tag">Networking</span><span class="tag">PowerApps</span><span class="tag">Assembly</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:18px;">Education</h3>
+    <div class="timeline-item">
+      <strong>Singapore Institute of Technology &amp; DigiPen Institute of Technology</strong>
+      <div class="role">Bachelor of Science with Honours, Computer Science in Real-Time Interactive Simulation</div>
+    </div>
+    <div class="timeline-item">
+      <strong>Nanyang Polytechnic</strong>
+      <div class="role">Diploma in Multimedia &amp; Infocomm Technology</div>
+    </div>
+    <div class="timeline-item">
+      <strong>Siglap Secondary School</strong>
+      <div class="role">GCE &ldquo;O&rdquo; Levels</div>
+    </div>
+
+    <h3 style="margin:36px 0 18px;">Co-Curricular Activities &amp; Awards</h3>
+    <div class="grid cols-3">
+      <div class="card">
+        <h3>Overseas Immersion Programme</h3>
+        <p style="color:var(--text-dim); font-size:.92rem;">Studied a trimester at DigiPen's
+        Europe-Bilbao campus in Spain, working alongside European professors, mentors and
+        overseas peers.</p>
+      </div>
+      <div class="card">
+        <h3>NYP Chinese Cultural Club</h3>
+        <p style="color:var(--text-dim); font-size:.92rem;">Committee member — Muse event booth
+        helper, calligraphy showcase, plus cue personnel, backstage and booth roles for the FLCD
+        event and Hamamatsu 2019 exchange programme.</p>
+      </div>
+      <div class="card">
+        <h3>Edusave Good Progress Award</h3>
+        <p style="color:var(--text-dim); font-size:.92rem;">Issued by Singapore's Ministry of
+        Education to students within the top 10% of their level and course for improvement in
+        academic performance and good conduct.</p>
+      </div>
+    </div>
+
+    <h3 style="margin:36px 0 18px;">Certifications</h3>
+    <div class="card">
+      <h3>AI4I — Literacy in AI</h3>
+      <p style="color:var(--text-dim); font-size:.92rem; margin:0;">AI Singapore &middot; Issued June 2025 &middot;
+      Credential ID 83957AC035-7F119FDAFC-156A3145B</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2 class="sec-title">Projects</h2>
+    <p class="sec-sub">What I've built at DigiPen and before.</p>
+
+    <div class="proj-card">
+      <div class="proj-head">
+        <span class="proj-date">2025 &ndash; 2026</span>
+        <h3 style="font-size:1.4rem; margin:0;">Pulse Protocol</h3>
+        <div class="proj-role">Graphics Programmer &middot; Custom C++ / OpenGL 2D Game Engine</div>
+      </div>
+      <div class="proj-body" style="padding-top:0;">
+        <p style="color:var(--text-dim);">My current DigiPen project module. Developed
+        graphics-related systems for a custom C++/OpenGL engine, working with ECS architecture,
+        the rendering pipeline, editor tooling, textures, fonts, animation, and UI integration.
+        Collaborated with a team to build and polish a playable game and editor workflow.</p>
+        <div class="tag-row">
+          <span class="tag">C++</span><span class="tag">OpenGL</span><span class="tag">GLSL</span>
+          <span class="tag">ImGui</span><span class="tag">ECS</span><span class="tag">JSON</span>
+          <span class="tag">Git</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-head">
+        <span class="proj-date">2019</span>
+        <h3 style="font-size:1.4rem; margin:0;">NYP Mobile Events Manager Application</h3>
+        <div class="proj-role">Software Developer &middot; Final Year Project</div>
+      </div>
+      <div class="proj-body" style="padding-top:0; padding-bottom:0;">
+        <p style="color:var(--text-dim);">Designed an event management system for Nanyang
+        Polytechnic students and lecturers to view, host, and register for campus events from a
+        mobile app.</p>
+      </div>
+      <div class="proj-media">
+        <img src="poster.jpg" alt="NYP Events Manager Application poster">
+        <embed src="Final Report.pdf" type="application/pdf" height="340">
+      </div>
+    </div>
+
+    <h3 style="margin:44px 0 18px;">Work Experience</h3>
+    <div class="timeline-item">
+      <strong>Sakura System Services</strong> &middot; Systems Engineer
+      <div class="role">2022 &ndash; 2023</div>
+      <p style="color:var(--text-dim); font-size:.92rem;">Developed and maintained web solutions
+      based on client requirements, providing IT solutions and support for companies using the
+      company's services.</p>
+    </div>
+    <div class="timeline-item">
+      <strong>Singapore Armed Forces</strong> &middot; Military Specialist
+      <div class="role">2020 &ndash; 2022</div>
+      <p style="color:var(--text-dim); font-size:.92rem;">Led and supported assigned personnel,
+      responded to emergencies with speed and efficiency, and made reasoned decisions to foster
+      troop discipline and unity.</p>
+    </div>
+    <div class="timeline-item">
+      <strong>Sopra Steria</strong> &middot; Android Programmer
+      <div class="role">2019</div>
+      <p style="color:var(--text-dim); font-size:.92rem;">Fulfilled client requests, produced
+      internal and customer-facing presentations, and collaborated with a professional team to
+      resolve project workflow issues.</p>
+    </div>
+  </div>
+</section>
+
+<section id="blog">
+  <div class="wrap">
+    <h2 class="sec-title">Blog</h2>
+    <p class="sec-sub">Notes on my time at DigiPen and what I'm building in the project module.</p>
+
+    <div class="blog-card">
+      <div class="blog-meta">DigiPen Life</div>
+      <h3>My Journey Through the RTIS Programme</h3>
+      <p>Coming from a Diploma in Multimedia &amp; Infocomm Technology at Nanyang Polytechnic, I
+      joined the Real-Time Interactive Simulation degree run jointly by the Singapore Institute
+      of Technology and DigiPen Institute of Technology. The programme pushes hard on the
+      fundamentals — data structures, computer graphics, math for games — while expecting you to
+      immediately apply them in engine and gameplay projects with a team, on a deadline.</p>
+      <p>One of the highlights so far was the Overseas Immersion Programme, where I spent a
+      trimester at DigiPen's Europe-Bilbao campus in Spain. Working alongside professors and
+      classmates from a completely different academic culture reshaped how I approach problems —
+      I came back more comfortable pitching ideas, asking questions in unfamiliar settings, and
+      collaborating with people who didn't necessarily share my first language.</p>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-meta">Project Module</div>
+      <h3>Inside Pulse Protocol: Building a Custom C++/OpenGL Engine</h3>
+      <p>For my current project module, I'm working as a graphics programmer on Pulse Protocol, a
+      2D game engine built from scratch in C++ and OpenGL. My focus has been on the
+      graphics-facing systems: the rendering pipeline, texture and font handling, animation, and
+      wiring up UI through ImGui-based editor tools.</p>
+      <p>A big part of the work has been fitting these systems cleanly into our ECS
+      architecture, so gameplay and tooling code can query and render entities without caring how
+      the underlying graphics resources are managed. We use JSON serialization to save and load
+      scene and entity data, which has also meant building small in-editor tools so the rest of
+      the team can iterate without touching engine code directly.</p>
+      <p>The most valuable part of the module isn't just the rendering code — it's learning to
+      build something a whole team can rely on: keeping the editor stable while the renderer is
+      still changing underneath it, and communicating engine changes clearly so gameplay
+      programmers aren't blocked.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's Talk</h2>
+    <p style="color:var(--text-dim);">Open to graphics programming and software engineering opportunities.</p>
+    <div class="contact-row">
+      <a href="mailto:jackgoh133@gmail.com">jackgoh133@gmail.com</a>
+      <a href="tel:+6592348444">+65 9234 8444</a>
+      <a href="https://github.com/pinkaig" target="_blank">github.com/pinkaig</a>
+    </div>
+    <p class="fine">&copy; 2026 Jack Goh Pin Kai. Built with plain HTML, CSS &amp; a lot of coffee.</p>
+  </div>
+</footer>
+
+</body>
 </html>
