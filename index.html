@@ -10,15 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Germania+One&family=Inter:wght@400;500;600&family=Italianno&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #0b0e14;
-    --bg-alt: #10141d;
-    --card: #151a24;
-    --border: #232a38;
-    --text: #e7ebf3;
-    --text-dim: #9aa4b7;
-    --accent: #5eead4;
-    --accent-2: #a78bfa;
-    --accent-3: #4b0082;
+  --bg: #090d1a;
+  --bg-alt: #10162a;
+  --card: #161d33;
+  --border: #2d3656;
+  --text: #f8fafc;
+  --text-dim: #b6bfd8;
+  --accent: #facc15;
+  --accent-hover: #fde047;
+  --accent-dark: #ca8a04;
+    --accent-2: #6366f1;
+  --accent-3: #3b82f6;
+  --indigo-dark: #312e81;
     --max: 1080px;
   }
   *{box-sizing:border-box;}
@@ -37,13 +40,13 @@
 
   header{
     position:sticky; top:0; z-index:100;
-    background:rgba(77, 136, 255, 0.918);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--border);
+    background:rgba(12, 18, 40, 0.94);
+    backdrop-filter:blur(10px);
+    border-bottom:2px solid rgba(250,204,21,.85);
   }
   nav.wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
   .logo{font-weight:700; font-size:1.15rem; color:var(--text); text-decoration:none; letter-spacing:.5px;}
-  .logo span{color:var(--accent);}
+  .logo span{color:inherit;}
   .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
   .navlinks a{color:var(--text-dim); text-decoration:none; font-weight:500; font-size:.95rem; transition:color .2s;}
   .navlinks a:hover{color:var(--accent);}
@@ -51,8 +54,8 @@
   .hero{
     padding:110px 0 90px;
     background:
-      radial-gradient(circle at 20% 20%, rgba(94,234,212,.12), transparent 40%),
-      radial-gradient(circle at 80% 30%, rgba(167,139,250,.12), transparent 40%);
+      radial-gradient(circle at 20% 20%, rgba(250,204,21,.12), transparent 40%),
+      radial-gradient(circle at 80% 30%, rgba(99,102,241,.16), transparent 42%);
     text-align:center;
   }
   .eyebrow{
@@ -69,7 +72,7 @@
     transition:transform .15s, box-shadow .15s;
   }
   .btn:hover{transform:translateY(-2px);}
-  .btn-primary{background:var(--accent); color:#06231e; box-shadow:0 6px 20px rgba(94,234,212,.25);}
+  .btn-primary{background:var(--accent); color:#111827; box-shadow:0 8px 24px rgba(250,204,21,.22);}
   .btn-outline{border:1px solid var(--border); color:var(--text);}
 
   section{padding:80px 0;}
@@ -88,7 +91,7 @@
   .card h3{margin-top:0; font-size:1.1rem; color:var(--text);}
   .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
   .tag{
-    background:rgba(94,234,212,.08); color:var(--accent); border:1px solid rgba(94,234,212,.25);
+    background:rgba(99,102,241,.12); color:#c7d2fe; border:1px solid rgba(99,102,241,.32);
     padding:4px 10px; border-radius:6px; font-size:.78rem; font-weight:600;
   }
   ul.plain{margin:0; padding:0; list-style:none;}
@@ -97,7 +100,7 @@
   .timeline-item{border-left:2px solid var(--border); padding-left:20px; position:relative; margin-bottom:28px;}
   .timeline-item::before{
     content:''; position:absolute; left:-7px; top:4px; width:12px; height:12px;
-    border-radius:50%; background:var(--accent-2); box-shadow:0 0 0 4px rgba(167,139,250,.15);
+    border-radius:50%; background:var(--accent-2); box-shadow:0 0 0 4px rgba(99,102,241,.18);
   }
   .timeline-item .role{color:var(--text-dim); font-size:.85rem; margin:2px 0 8px;}
   .timeline-item .xp-title{font-family:'Italianno',cursive; font-size:2rem; font-weight:400; color:var(--accent);}
@@ -139,6 +142,42 @@
     max-width:90vw; max-height:90vh; border-radius:10px;
     box-shadow:0 8px 40px rgba(0,0,0,.6);
   }
+
+  /* Yellow + blue/indigo theme refinements */
+  .logo{color:var(--accent);}
+  .logo span{color:inherit;}
+  .navlinks a:hover{color:var(--accent);}
+  .hero h1 em{
+    background:linear-gradient(90deg,var(--accent) 0%, #60a5fa 45%, var(--accent-2) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .eyebrow{
+    background:rgba(250,204,21,.06);
+    border-color:rgba(250,204,21,.35);
+  }
+  .btn-outline{
+    border-color:rgba(99,102,241,.55);
+    background:rgba(99,102,241,.06);
+  }
+  .btn-outline:hover{
+    border-color:var(--accent-2);
+    box-shadow:0 8px 24px rgba(99,102,241,.14);
+  }
+  .card,.proj-card,.blog-card{
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+  }
+  .card:hover,.proj-card:hover,.blog-card:hover{
+    border-color:rgba(99,102,241,.5);
+  }
+  .sec-title{
+    color:var(--accent);
+  }
+  .proj-role{
+    color:#818cf8;
+  }
+
 </style>
 </head>
 <body>
