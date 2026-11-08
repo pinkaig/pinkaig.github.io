@@ -4,24 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jack Goh Pin Kai</title>
-<meta name="description" content="Portfolio of Jack Goh Pin Kai">
+<meta name="description" content="Portfolio of Jack Goh Pin Kai: Computer Science undergraduate seeking Data Scientist, Business Intelligence Developer and Software Engineer roles.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Germania+One&family=Inter:wght@400;500;600&family=Italianno&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-  --bg: #090d1a;
-  --bg-alt: #10162a;
-  --card: #161d33;
-  --border: #2d3656;
-  --text: #f8fafc;
-  --text-dim: #b6bfd8;
-  --accent: #facc15;
-  --accent-hover: #fde047;
-  --accent-dark: #ca8a04;
+    --bg: #090d1a;
+    --bg-alt: #10162a;
+    --card: #161d33;
+    --border: #2d3656;
+    --text: #f8fafc;
+    --text-dim: #b6bfd8;
+    --accent: #facc15;
     --accent-2: #6366f1;
-  --accent-3: #3b82f6;
-  --indigo-dark: #312e81;
+    --accent-3: #3b82f6;
     --max: 1080px;
   }
   *{box-sizing:border-box;}
@@ -33,11 +30,24 @@
     font-family:'Inter',-apple-system,Segoe UI,sans-serif;
     line-height:1.6;
   }
-  h1,h2,h3,.logo{font-family:'Germania One',sans-serif;}
+  /* opsz pinned low: at the font's automatic large-size setting, hyphens become near-invisible hairlines */
+  h1,h2,h3{font-family:'Bodoni Moda',Didot,'Times New Roman',serif; font-weight:700; font-variation-settings:'opsz' 12;}
+  .logo,.sec-title,.eyebrow,.numeral{font-family:'Cinzel','Trajan Pro',serif;}
+
+  /* ---------- Italian touches: Roman numerals, laurel ornaments, marble ---------- */
+  .numeral{color:#a5b4fc; font-weight:500; margin-right:14px; letter-spacing:1px;}
+  .ornament{display:flex; align-items:center; gap:8px; color:var(--accent); margin:6px 0 18px;}
+  .ornament svg{width:56px; height:21px; opacity:.85;}
+  .ornament svg.flip{transform:scaleX(-1);}
+  .ornament .gem{width:7px; height:7px; background:currentColor; transform:rotate(45deg); flex:none;}
+  .ornament.center{justify-content:center;}
+  .ornament.lg svg{width:84px; height:32px;}
+  .ornament.lg .gem{width:9px; height:9px;}
   a{color:var(--accent);}
   img{max-width:100%;}
   .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
 
+  /* ---------- Header ---------- */
   header{
     position:sticky; top:0; z-index:100;
     background:rgba(12, 18, 40, 0.94);
@@ -45,27 +55,37 @@
     border-bottom:2px solid rgba(250,204,21,.85);
   }
   nav.wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
-  .logo{font-weight:700; font-size:1.15rem; color:var(--text); text-decoration:none; letter-spacing:.5px;}
-  .logo span{color:inherit;}
+  .logo{font-size:1.15rem; font-weight:700; color:var(--accent); text-decoration:none; letter-spacing:2px;}
   .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
   .navlinks a{color:var(--text-dim); text-decoration:none; font-weight:500; font-size:.95rem; transition:color .2s;}
   .navlinks a:hover{color:var(--accent);}
 
+  /* ---------- Hero with particle network ---------- */
   .hero{
-    padding:110px 0 90px;
-    background:
-      radial-gradient(circle at 20% 20%, rgba(250,204,21,.12), transparent 40%),
-      radial-gradient(circle at 80% 30%, rgba(99,102,241,.16), transparent 42%);
+    position:relative; overflow:hidden;
+    padding:120px 0 100px;
     text-align:center;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(250,204,21,.10), transparent 40%),
+      radial-gradient(circle at 80% 30%, rgba(99,102,241,.14), transparent 42%),
+      var(--bg);
   }
+  #hero-canvas{position:absolute; inset:0; width:100%; height:100%; display:block;}
+  .hero .wrap{position:relative; z-index:1; pointer-events:none;}
+  .hero .wrap a{pointer-events:auto;}
   .eyebrow{
-    display:inline-block; padding:6px 14px; border:1px solid var(--border);
+    display:inline-block; padding:6px 14px; border:1px solid rgba(250,204,21,.35);
+    background:rgba(250,204,21,.06);
     border-radius:999px; font-size:.8rem; color:var(--accent); letter-spacing:1px;
     text-transform:uppercase; margin-bottom:22px;
   }
-  .hero h1{font-size:clamp(2.1rem, 5vw, 3.4rem); margin:0 0 14px; color:var(--text);}
-  .hero h1 em{font-style:normal; background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent;}
-  .hero p{max-width:640px; margin:0 auto 32px; color:var(--text-dim); font-size:1.05rem;}
+  .hero h1{font-size:clamp(2.1rem, 5vw, 3.4rem); margin:0 0 14px; text-shadow:0 2px 24px rgba(0,0,0,.7);}
+  .hero h1 em{
+    font-style:italic; font-weight:500;
+    background:linear-gradient(90deg,var(--accent) 0%, #60a5fa 45%, var(--accent-2) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p{max-width:640px; margin:0 auto 32px; color:var(--text-dim); font-size:1.05rem; text-shadow:0 1px 12px rgba(0,0,0,.8);}
   .btnrow{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
   .btn{
     padding:12px 26px; border-radius:8px; text-decoration:none; font-weight:600; font-size:.95rem;
@@ -73,48 +93,83 @@
   }
   .btn:hover{transform:translateY(-2px);}
   .btn-primary{background:var(--accent); color:#111827; box-shadow:0 8px 24px rgba(250,204,21,.22);}
-  .btn-outline{border:1px solid var(--border); color:var(--text);}
+  .btn-outline{border:1px solid rgba(99,102,241,.55); background:rgba(9,13,26,.6); color:var(--text);}
+  .btn-outline:hover{border-color:var(--accent-2); box-shadow:0 8px 24px rgba(99,102,241,.14);}
 
+  /* ---------- Sections ---------- */
   section{padding:80px 0;}
-  section:nth-child(even){background:var(--bg-alt);}
-  .sec-title{font-size:2rem; margin:0 0 8px;}
+  section:nth-of-type(odd){background:var(--bg-alt);}
+  .sec-title{font-size:2rem; font-weight:700; letter-spacing:1.5px; margin:0; color:var(--accent);}
   .sec-sub{color:var(--text-dim); margin:0 0 44px; max-width:600px;}
+  .sub-title{margin:44px 0 18px; font-size:1.4rem;}
 
   .grid{display:grid; gap:20px;}
-  .cols-2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-  .cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
-  .cols-4{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));}
+  .cols-2{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));}
+  .cols-3{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));}
 
-  .card{
-    background:var(--card); border:1px solid var(--border); border-radius:14px; padding:26px;
+  .card, .proj-card, .blog-card{
+    position:relative;
+    /* faint marble veins over the card colour */
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900'%3E%3Cfilter id='m' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0016 0.0045' numOctaves='5' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 .9 0 0 0 .7 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='.07'/%3E%3C/svg%3E") center / cover no-repeat,
+      var(--card);
+    border:1px solid var(--border); border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
   }
-  .card h3{margin-top:0; font-size:1.1rem; color:var(--text);}
+  .card{padding:26px;}
+  .card h3{margin-top:0; font-size:1.1rem;}
+  .card p{color:var(--text-dim); font-size:.92rem;}
+  .card h3.skill-head{font-size:1rem; color:var(--accent);}
   .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
   .tag{
     background:rgba(99,102,241,.12); color:#c7d2fe; border:1px solid rgba(99,102,241,.32);
     padding:4px 10px; border-radius:6px; font-size:.78rem; font-weight:600;
   }
-  ul.plain{margin:0; padding:0; list-style:none;}
-  ul.plain li{padding:6px 0; color:var(--text-dim); font-size:.92rem;}
+  ul.bullets{margin:0; padding-left:20px; color:var(--text-dim); font-size:.92rem;}
+  ul.bullets li{margin-bottom:6px;}
 
   .timeline-item{border-left:2px solid var(--border); padding-left:20px; position:relative; margin-bottom:28px;}
   .timeline-item::before{
-    content:''; position:absolute; left:-7px; top:4px; width:12px; height:12px;
+    content:''; position:absolute; left:-7px; top:6px; width:12px; height:12px;
     border-radius:50%; background:var(--accent-2); box-shadow:0 0 0 4px rgba(99,102,241,.18);
   }
   .timeline-item .role{color:var(--text-dim); font-size:.85rem; margin:2px 0 8px;}
-  .timeline-item .xp-title{font-family:'Italianno',cursive; font-size:2rem; font-weight:400; color:var(--accent);}
+  .xp-title{font-family:'Inter',sans-serif; font-weight:600; font-size:1.2rem; color:var(--accent);}
 
-  .proj-card{background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; margin-bottom:30px;}
+  .proj-card{overflow:hidden; margin-bottom:30px;}
   .proj-head{padding:26px 26px 0;}
-  .proj-body{padding:26px;}
-  .proj-media{padding:0 26px 26px; display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start;}
-  .proj-media img{border-radius:10px; border:1px solid var(--border); max-height:340px;}
-  .proj-media embed{border-radius:10px; border:1px solid var(--border); flex:1; min-width:240px;}
+  .proj-body{padding:0 26px 26px;}
+  .proj-head h3{font-size:1.4rem; margin:0;}
+  .proj-head h3 a{color:var(--text); text-decoration:none; transition:color .2s;}
+  .proj-head h3 a:hover{color:var(--accent);}
+  .proj-link{
+    display:inline-block; margin-top:16px; padding:8px 16px; border-radius:8px;
+    border:1px solid rgba(250,204,21,.5); background:rgba(250,204,21,.06);
+    color:var(--accent); text-decoration:none; font-weight:600; font-size:.88rem;
+    transition:background .2s, transform .15s;
+  }
+  .proj-link:hover{background:rgba(250,204,21,.14); transform:translateY(-2px);}
   .proj-date{float:right; color:var(--text-dim); font-size:.85rem; font-weight:500;}
-  .proj-role{color:var(--accent-2); font-weight:600; font-size:.9rem; margin:4px 0 14px;}
+  .proj-role{color:#818cf8; font-weight:600; font-size:.9rem; margin:4px 0 14px;}
+  .proj-media{padding:0 26px 26px; display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start;}
+  .proj-media img{border-radius:10px; border:1px solid var(--border); max-height:340px; cursor:zoom-in;}
 
-  .blog-card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:28px; margin-bottom:22px;}
+  /* Text on the left, poster on the right */
+  .proj-split{display:grid; grid-template-columns:minmax(0,1fr) 230px; align-items:center;}
+  .proj-split .proj-media{padding:26px 26px 26px 0; justify-content:center;}
+  .proj-split .proj-media img{
+    width:100%; max-height:none; display:block;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .proj-split .proj-media img:hover{transform:scale(1.03); box-shadow:0 16px 40px rgba(250,204,21,.18);}
+  @media (max-width:760px){
+    .proj-split{grid-template-columns:1fr;}
+    .proj-split .proj-media{padding:0 26px 26px;}
+    .proj-split .proj-media img{max-width:260px; margin:0 auto;}
+  }
+
+  .blog-card{padding:28px; margin-bottom:22px;}
   .blog-meta{color:var(--text-dim); font-size:.82rem; text-transform:uppercase; letter-spacing:.5px; margin-bottom:10px;}
   .blog-card h3{margin:0 0 12px; font-size:1.25rem;}
   .blog-card p{color:var(--text-dim); margin:0 0 10px;}
@@ -126,68 +181,108 @@
   .contact-row a:hover{color:var(--accent);}
   .fine{color:var(--text-dim); font-size:.82rem; margin-top:30px;}
 
-  @media (max-width:640px){
-    .navlinks{display:none;}
-    section{padding:56px 0;}
+  /* ---------- Effect: 3D tilt + glow ---------- */
+  .tilt-wrap{perspective:1000px;}
+  .tilt{transform-style:preserve-3d; transition:transform .15s ease-out, border-color .2s;}
+  .tilt::after{
+    content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+    opacity:0; transition:opacity .25s;
+    background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(250,204,21,.16), transparent 45%);
+  }
+  .tilt:hover::after{opacity:1;}
+  .tilt:hover{border-color:rgba(250,204,21,.6);}
+
+  /* ---------- Effect: glitch headings ---------- */
+  .glitch{position:relative; display:inline-block;}
+  .glitch::before,.glitch::after{
+    content:attr(data-text); position:absolute; left:0; top:0; width:100%;
+    opacity:0; pointer-events:none;
+  }
+  .glitch::before{color:#60a5fa;}
+  .glitch::after{color:#f472b6;}
+  .glitch:hover::before{opacity:.9; animation:glitch1 .4s infinite linear alternate-reverse;}
+  .glitch:hover::after{opacity:.9; animation:glitch2 .5s infinite linear alternate-reverse;}
+  @keyframes glitch1{
+    0%{clip-path:inset(10% 0 70% 0); transform:translate(-3px,-2px);}
+    50%{clip-path:inset(50% 0 20% 0); transform:translate(3px,1px);}
+    100%{clip-path:inset(80% 0 5% 0); transform:translate(-2px,2px);}
+  }
+  @keyframes glitch2{
+    0%{clip-path:inset(70% 0 10% 0); transform:translate(3px,2px);}
+    50%{clip-path:inset(15% 0 60% 0); transform:translate(-3px,-1px);}
+    100%{clip-path:inset(40% 0 40% 0); transform:translate(2px,-2px);}
   }
 
-  .proj-media img{cursor:zoom-in;}
+  /* ---------- Effect: scroll progress + custom cursor ---------- */
+  #progress{
+    position:fixed; top:0; left:0; height:4px; width:0; z-index:1000;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    box-shadow:0 0 12px var(--accent);
+  }
+  .cur-dot,.cur-ring{
+    position:fixed; top:0; left:0; pointer-events:none; z-index:1001;
+    border-radius:50%; display:none;
+  }
+  .cur-dot{width:6px; height:6px; background:var(--accent);}
+  .cur-ring{
+    width:34px; height:34px; border:2px solid rgba(250,204,21,.7);
+    box-shadow:0 0 14px rgba(250,204,21,.4);
+    transition:width .2s, height .2s, background .2s, border-color .2s;
+  }
+  .cur-ring.big{width:60px; height:60px; background:rgba(99,102,241,.15); border-color:var(--accent-2);}
+  body.cursor-on, body.cursor-on *{cursor:none !important;}
+  body.cursor-on .cur-dot, body.cursor-on .cur-ring{display:block;}
+
+  /* ---------- Lightbox ---------- */
   #lightbox{
     display:none; position:fixed; inset:0; z-index:999;
     background:rgba(0,0,0,.85); align-items:center; justify-content:center;
     cursor:zoom-out;
   }
   #lightbox.open{display:flex;}
-  #lightbox img{
-    max-width:90vw; max-height:90vh; border-radius:10px;
-    box-shadow:0 8px 40px rgba(0,0,0,.6);
-  }
+  #lightbox img{max-width:90vw; max-height:90vh; border-radius:10px; box-shadow:0 8px 40px rgba(0,0,0,.6);}
 
-  /* Yellow + blue/indigo theme refinements */
-  .logo{color:var(--accent);}
-  .logo span{color:inherit;}
-  .navlinks a:hover{color:var(--accent);}
-  .hero h1 em{
-    background:linear-gradient(90deg,var(--accent) 0%, #60a5fa 45%, var(--accent-2) 100%);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+  @media (max-width:640px){
+    .navlinks{display:none;}
+    section{padding:56px 0;}
+    .wrap{padding:0 16px;}
+    .proj-date{float:none; display:block;}
   }
-  .eyebrow{
-    background:rgba(250,204,21,.06);
-    border-color:rgba(250,204,21,.35);
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .glitch:hover::before,.glitch:hover::after{animation:none; opacity:0;}
   }
-  .btn-outline{
-    border-color:rgba(99,102,241,.55);
-    background:rgba(99,102,241,.06);
-  }
-  .btn-outline:hover{
-    border-color:var(--accent-2);
-    box-shadow:0 8px 24px rgba(99,102,241,.14);
-  }
-  .card,.proj-card,.blog-card{
-    box-shadow:0 10px 30px rgba(0,0,0,.12);
-  }
-  .card:hover,.proj-card:hover,.blog-card:hover{
-    border-color:rgba(99,102,241,.5);
-  }
-  .sec-title{
-    color:var(--accent);
-  }
-  .proj-role{
-    color:#818cf8;
-  }
-
 </style>
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="laurel" viewBox="0 0 64 24">
+    <path d="M62 15.5 C46 16.5 26 13.5 4 4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    <g fill="currentColor">
+      <ellipse cx="51" cy="12.6" rx="5" ry="1.8" transform="rotate(-22 51 12.6)"/>
+      <ellipse cx="51" cy="19" rx="5" ry="1.8" transform="rotate(18 51 19)"/>
+      <ellipse cx="40" cy="11.6" rx="5" ry="1.8" transform="rotate(-28 40 11.6)"/>
+      <ellipse cx="40" cy="18.2" rx="5" ry="1.8" transform="rotate(14 40 18.2)"/>
+      <ellipse cx="29" cy="9.4" rx="4.8" ry="1.7" transform="rotate(-34 29 9.4)"/>
+      <ellipse cx="29" cy="16" rx="4.8" ry="1.7" transform="rotate(10 29 16)"/>
+      <ellipse cx="18" cy="5.8" rx="4.4" ry="1.6" transform="rotate(-40 18 5.8)"/>
+      <ellipse cx="18" cy="12.4" rx="4.4" ry="1.6" transform="rotate(4 18 12.4)"/>
+      <ellipse cx="6" cy="3.4" rx="3.4" ry="1.4" transform="rotate(-24 6 3.4)"/>
+    </g>
+  </symbol>
+</svg>
+
+<div id="progress"></div>
+<div class="cur-dot"></div><div class="cur-ring"></div>
+
 <header>
   <nav class="wrap">
-    <a href="#top" class="logo">Jack <span>Goh</span></a>
+    <a href="#top" class="logo">Jack Goh</a>
     <ul class="navlinks">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#blog">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -195,17 +290,19 @@
 </header>
 
 <div id="top"></div>
-<section class="hero">
+<section class="hero" id="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="wrap">
-    <span class="eyebrow">DigiPen Institute of Technology - SIT</span>
+    <span class="eyebrow">DigiPen Institute of Technology &middot; SIT</span>
     <h1>Jack Goh Pin Kai<br><em>Real-Time Interactive Simulation</em></h1>
-    <p>Computer Science undergraduate pursuing a Bachelor of Science with Honours in Computer
-      Science in Real-Time Interactive Simulation, with experience in Python, SQL, software
-      development, relational databases, data analysis, and data modelling. Experienced in
-      designing database-backed applications, developing RESTful APIs, analysing technical
-      requirements, and building software systems. Seeking Data Science, Data Analytics, or
-      Machine Learning opportunities where programming, analytical problem-solving, and 
-      quantitative skills can be applied to real-world data.</p>
+    <div class="ornament center lg" aria-hidden="true">
+      <svg><use href="#laurel"/></svg><span class="gem"></span><svg class="flip"><use href="#laurel"/></svg>
+    </div>
+    <p>Computer Science undergraduate seeking <strong style="color:var(--text);">Data Scientist</strong>,
+      <strong style="color:var(--text);">Business Intelligence Developer</strong> and
+      <strong style="color:var(--text);">Software Engineer</strong> roles. I work in Python, SQL,
+      C++ and JavaScript, building everything from relational data models and REST APIs to
+      performance-critical systems.</p>
     <div class="btnrow">
       <a class="btn btn-primary" href="Resume.pdf" target="_blank">Download Resume</a>
       <a class="btn btn-outline" href="#projects">View Projects</a>
@@ -216,237 +313,449 @@
 
 <section id="about">
   <div class="wrap">
-    <h2 class="sec-title">About Me</h2>
+    <h2 class="sec-title"><span class="numeral">I.</span><span class="glitch" data-text="About Me">About Me</span></h2>
+    <div class="ornament" aria-hidden="true"><svg><use href="#laurel"/></svg><span class="gem"></span><svg class="flip"><use href="#laurel"/></svg></div>
     <p class="sec-sub">Professional summary, skills, and education.</p>
 
-    <div class="grid cols-2" style="margin-bottom:44px;">
-      <div class="card">
-        <h3>Summary</h3>
-        <p style="color:var(--text-dim);">Computer Science undergraduate specialising in real-time
-        interactive simulation, graphics programming, and software development. Experienced in
-        C++, OpenGL, Java, C#, Python, and web technologies, with project experience in game
-        engine development, ECS architecture, rendering systems, and interactive applications.</p>
+    <div class="grid cols-2 tilt-wrap" style="margin-bottom:44px;">
+      <div class="card tilt">
+        <h3>Professional Summary</h3>
+        <p>Computer Science undergraduate seeking Data Scientist, Business Intelligence Developer,
+        or Software Engineer roles. Experienced in Python, SQL, C++ and JavaScript, with a
+        foundation in machine learning, probability and statistics, and linear algebra. Skilled
+        in relational database design and data modelling, building RESTful APIs and full-stack
+        applications, and debugging and optimising performance-critical systems. Experienced in
+        gathering requirements from clients and stakeholders and translating them into reliable,
+        data-driven software solutions.</p>
       </div>
     </div>
 
-    <h3 style="margin-bottom:18px;">Skills</h3>
-    <div class="grid cols-4" style="margin-bottom:44px;">
-      <div class="card">
-        <h3 style="font-size:.95rem; color:var(--accent);">Programming</h3>
+    <h3 class="sub-title">Key Skills</h3>
+    <div class="grid cols-3 tilt-wrap">
+      <div class="card tilt">
+        <h3 class="skill-head">Programming</h3>
         <div class="tag-row">
-          <span class="tag">C++</span><span class="tag">C#</span><span class="tag">Java</span>
-          <span class="tag">Python</span><span class="tag">PHP</span><span class="tag">SQL</span>
-          <span class="tag">HTML</span>
+          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">C++</span>
+          <span class="tag">C#</span><span class="tag">Java</span><span class="tag">JavaScript</span>
+          <span class="tag">PHP</span>
         </div>
       </div>
-      <div class="card">
-        <h3 style="font-size:.95rem; color:var(--accent);">Graphics / Game Dev</h3>
+      <div class="card tilt">
+        <h3 class="skill-head">Software &amp; Web Development</h3>
+        <div class="tag-row">
+          <span class="tag">React.js</span><span class="tag">TypeScript</span><span class="tag">Three.js</span>
+          <span class="tag">Vite</span><span class="tag">Laravel</span><span class="tag">HTML</span>
+          <span class="tag">JSON</span><span class="tag">RESTful APIs</span>
+        </div>
+      </div>
+      <div class="card tilt">
+        <h3 class="skill-head">Systems &amp; Graphics</h3>
         <div class="tag-row">
           <span class="tag">OpenGL</span><span class="tag">GLSL</span><span class="tag">ImGui</span>
-          <span class="tag">ECS</span><span class="tag">JSON Serialization</span>
+          <span class="tag">Entity Component System</span><span class="tag">Interactive 3D</span>
         </div>
       </div>
-      <div class="card">
-        <h3 style="font-size:.95rem; color:var(--accent);">Tools</h3>
+      <div class="card tilt">
+        <h3 class="skill-head">Data &amp; Analytics</h3>
         <div class="tag-row">
-          <span class="tag">Git</span><span class="tag">Visual Studio</span><span class="tag">MS Office</span>
-          <span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">Premiere Pro</span>
+          <span class="tag">MySQL</span><span class="tag">Database Design</span>
+          <span class="tag">Data Modelling</span><span class="tag">Machine Learning (coursework)</span>
         </div>
       </div>
-      <div class="card">
-        <h3 style="font-size:.95rem; color:var(--accent);">Other</h3>
+      <div class="card tilt">
+        <h3 class="skill-head">Development Tools</h3>
         <div class="tag-row">
-          <span class="tag">Networking</span><span class="tag">PowerApps</span><span class="tag">Assembly</span>
+          <span class="tag">Git</span><span class="tag">GitHub</span>
+          <span class="tag">Visual Studio</span><span class="tag">Android Studio</span>
+        </div>
+      </div>
+      <div class="card tilt">
+        <h3 class="skill-head">Tools</h3>
+        <div class="tag-row">
+          <span class="tag">PowerApps</span><span class="tag">Microsoft Office</span>
+          <span class="tag">Adobe Creative Suite</span>
         </div>
       </div>
     </div>
 
-    <h3 style="margin-bottom:18px;">Education</h3>
+    <h3 class="sub-title">Education</h3>
     <div class="timeline-item">
       <strong>Singapore Institute of Technology &amp; DigiPen Institute of Technology</strong>
-      <div class="role">Bachelor of Science with Honours, Computer Science in Real-Time Interactive Simulation</div>
+      <div class="role">Bachelor of Science with Honours in Computer Science in Real-Time Interactive Simulation &middot; Expected graduation 2028</div>
     </div>
     <div class="timeline-item">
       <strong>Nanyang Polytechnic</strong>
-      <div class="role">Diploma in Multimedia &amp; Infocomm Technology</div>
-    </div>
-    <div class="timeline-item">
-      <strong>Siglap Secondary School</strong>
-      <div class="role">GCE &ldquo;O&rdquo; Levels</div>
+      <div class="role">Diploma in Multimedia &amp; Infocomm Technology &middot; Graduated 2020</div>
     </div>
 
-    <h3 style="margin:36px 0 18px;">Co-Curricular Activities &amp; Awards</h3>
-    <div class="grid cols-3">
-      <div class="card">
+    <h3 class="sub-title">Relevant Coursework</h3>
+    <div class="tag-row" style="margin-bottom:10px;">
+      <span class="tag">Machine Learning</span><span class="tag">Probability and Statistics</span>
+      <span class="tag">Algorithm Analysis</span><span class="tag">Artificial Intelligence for Games</span>
+      <span class="tag">Data Structures</span><span class="tag">Linear Algebra</span>
+      <span class="tag">Programming Massively Parallel Processors</span>
+      <span class="tag">Software Engineering Projects</span>
+    </div>
+
+    <h3 class="sub-title">Certifications</h3>
+    <div class="tilt-wrap">
+      <div class="card tilt">
+        <h3>AI4I &ndash; Literacy in AI</h3>
+        <p style="margin:0;">AI Singapore &middot; Issued June 2025 &middot;
+        Credential ID 83957AC035-7F119FDAFC-156A3145B</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Co-Curricular Activities &amp; Awards</h3>
+    <div class="grid cols-3 tilt-wrap">
+      <div class="card tilt">
         <h3>Overseas Immersion Programme</h3>
-        <p style="color:var(--text-dim); font-size:.92rem;">Studied a trimester at DigiPen's
-        Europe-Bilbao campus in Spain, working alongside European professors, mentors and
-        overseas peers.</p>
+        <p>Studied a trimester at DigiPen's Europe-Bilbao campus in Spain, working alongside
+        European professors, mentors and overseas peers.</p>
       </div>
-      <div class="card">
+      <div class="card tilt">
         <h3>NYP Chinese Cultural Club</h3>
-        <p style="color:var(--text-dim); font-size:.92rem;">Committee member — Muse event booth
-        helper, calligraphy showcase, plus cue personnel, backstage and booth roles for the FLCD
-        event and Hamamatsu 2019 exchange programme.</p>
+        <p>Committee member: Muse event booth helper, calligraphy showcase, plus cue personnel,
+        backstage and booth roles for the FLCD event and Hamamatsu 2019 exchange programme.</p>
       </div>
-      <div class="card">
+      <div class="card tilt">
         <h3>Edusave Good Progress Award</h3>
-        <p style="color:var(--text-dim); font-size:.92rem;">Issued by Singapore's Ministry of
-        Education to students within the top 10% of their level and course for improvement in
-        academic performance and good conduct.</p>
+        <p>Issued by Singapore's Ministry of Education to students within the top 10% of their
+        level and course for improvement in academic performance and good conduct.</p>
       </div>
-    </div>
-
-    <h3 style="margin:36px 0 18px;">Certifications</h3>
-    <div class="card">
-      <h3>AI4I - Literacy in AI</h3>
-      <p style="color:var(--text-dim); font-size:.92rem; margin:0;">AI Singapore &middot; Issued June 2025 &middot;
-      Credential ID 83957AC035-7F119FDAFC-156A3145B</p>
     </div>
   </div>
 </section>
 
 <section id="projects">
   <div class="wrap">
-    <h2 class="sec-title">Projects</h2>
+    <h2 class="sec-title"><span class="numeral">II.</span><span class="glitch" data-text="Projects">Projects</span></h2>
+    <div class="ornament" aria-hidden="true"><svg><use href="#laurel"/></svg><span class="gem"></span><svg class="flip"><use href="#laurel"/></svg></div>
     <p class="sec-sub">What I've built at DigiPen and before.</p>
 
-    <div class="proj-card">
-      <div class="proj-head">
-        <span class="proj-date">2025 &ndash; 2026</span>
-        <h3 style="font-size:1.4rem; margin:0;">Pulse Protocol</h3>
-        <div class="proj-role">Graphics Programmer &middot; Custom C++ / OpenGL 2D Game Engine</div>
+    <div class="tilt-wrap">
+      <div class="proj-card tilt" data-tilt="5">
+        <div class="proj-head">
+          <span class="proj-date">2026 &ndash; Present</span>
+          <h3><a href="https://github.com/pinkaig/VectorSpace" target="_blank" rel="noopener">VectorSpace</a></h3>
+          <div class="proj-role">Software Developer &middot; Industry Project, VThere (Client) x DigiPen</div>
+        </div>
+        <div class="proj-body">
+          <ul class="bullets">
+            <li>Collaborating with a team to develop a no-code 3D authoring platform for VThere using
+            React, TypeScript, Three.js and Vite.</li>
+            <li>Developing camera navigation, object selection, 3D transforms and orthographic views.</li>
+            <li>Implementing scene management and editor interactions for interactive 3D environments.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">React</span><span class="tag">TypeScript</span>
+            <span class="tag">Three.js</span><span class="tag">Vite</span>
+          </div>
+          <a class="proj-link" href="https://github.com/pinkaig/VectorSpace" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
       </div>
-      <div class="proj-body" style="padding-top:0;">
-        <p style="color:var(--text-dim);">My current DigiPen project module. Developed
-        graphics-related systems for a custom C++/OpenGL engine, working with ECS architecture,
-        the rendering pipeline, editor tooling, textures, fonts, animation, and UI integration.
-        Collaborated with a team to build and polish a playable game and editor workflow.</p>
-        <div class="tag-row">
-          <span class="tag">C++</span><span class="tag">OpenGL</span><span class="tag">GLSL</span>
-          <span class="tag">ImGui</span><span class="tag">ECS</span><span class="tag">JSON</span>
-          <span class="tag">Git</span>
+
+      <div class="proj-card tilt" data-tilt="5">
+        <div class="proj-head">
+          <span class="proj-date">2025 &ndash; 2026</span>
+          <h3><a href="https://douzifleur.itch.io/pulse-protocol" target="_blank" rel="noopener">Pulse Protocol</a></h3>
+          <div class="proj-role">Graphics Programmer &middot; Custom C++ / OpenGL Engine</div>
+        </div>
+        <div class="proj-body">
+          <ul class="bullets">
+            <li>Engineered modular C++/OpenGL rendering systems using Entity Component System (ECS)
+            architecture and reusable components.</li>
+            <li>Optimised rendering with sprite batching, shader and texture grouping, animation and
+            GLSL shaders to reduce state changes and draw calls.</li>
+            <li>Implemented camera controls, coordinate transformations, viewport resizing, and
+            consistent 16:9 letterboxing for the game and editor.</li>
+            <li>Integrated graphics tools into an ImGui editor and collaborated across engineering,
+            design, and art disciplines to ship a playable game.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">C++</span><span class="tag">OpenGL</span><span class="tag">GLSL</span>
+            <span class="tag">ImGui</span><span class="tag">ECS</span>
+          </div>
+          <a class="proj-link" href="https://douzifleur.itch.io/pulse-protocol" target="_blank" rel="noopener">Play on itch.io &rarr;</a>
+        </div>
+      </div>
+
+      <div class="proj-card proj-split tilt" data-tilt="3">
+        <div class="proj-main">
+        <div class="proj-head">
+          <span class="proj-date">2019</span>
+          <h3><a href="https://pinkaig.github.io/NYP-Mobile-Events-Manager/" target="_blank" rel="noopener">NYP Mobile Events Manager Application</a></h3>
+          <div class="proj-role">Software Developer &middot; Final Year Project</div>
+        </div>
+        <div class="proj-body">
+          <ul class="bullets">
+            <li>Built a full-stack events application for discovering, hosting and registering for events.</li>
+            <li>Designed relational data models in MySQL and built Laravel/PHP REST APIs for
+            authenticated access, data management, and application integration.</li>
+            <li>Developed a React.js interface integrated with APIs to retrieve and update event
+            information and registrations.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">MySQL</span><span class="tag">Laravel</span><span class="tag">PHP</span>
+            <span class="tag">REST APIs</span><span class="tag">React.js</span>
+          </div>
+          <a class="proj-link" href="https://pinkaig.github.io/NYP-Mobile-Events-Manager/" target="_blank" rel="noopener">View project page &rarr;</a>
+        </div>
+        </div>
+        <div class="proj-media">
+          <img src="poster.jpg" alt="NYP Events Manager Application poster">
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="proj-card">
-      <div class="proj-head">
-        <span class="proj-date">2019</span>
-        <h3 style="font-size:1.4rem; margin:0;">NYP Mobile Events Manager Application</h3>
-        <div class="proj-role">Software Developer &middot; Final Year Project</div>
-      </div>
-      <div class="proj-body" style="padding-top:0; padding-bottom:0;">
-        <p style="color:var(--text-dim);">Designed an event management system for Nanyang
-        Polytechnic students and lecturers to view, host, and register for campus events from a
-        mobile app.</p>
-      </div>
-      <div class="proj-media">
-        <img src="poster.jpg" alt="NYP Events Manager Application poster">
-        <embed src="Final Report.pdf" type="application/pdf" height="340">
-      </div>
-    </div>
+<section id="experience">
+  <div class="wrap">
+    <h2 class="sec-title"><span class="numeral">III.</span><span class="glitch" data-text="Work Experience">Work Experience</span></h2>
+    <div class="ornament" aria-hidden="true"><svg><use href="#laurel"/></svg><span class="gem"></span><svg class="flip"><use href="#laurel"/></svg></div>
+    <p class="sec-sub">Where I've worked and what I did there.</p>
 
-    <h3 style="margin:44px 0 18px;">Work Experience</h3>
     <div class="timeline-item">
       <span class="xp-title">Sakura System Services</span> &middot; Systems Engineer
       <div class="role">2022 &ndash; 2023</div>
-      <p style="color:var(--text-dim); font-size:.92rem;">Developed and maintained web solutions
-      based on client requirements, providing IT solutions and support for companies using the
-      company's services.</p>
+      <ul class="bullets">
+        <li>Developed and maintained client web applications based on business needs and technical requirements.</li>
+        <li>Investigated application defects and troubleshot production issues to improve system reliability.</li>
+        <li>Supported software deployment, system maintenance, and customer issue resolution.</li>
+      </ul>
     </div>
     <div class="timeline-item">
-      <span class="xp-title">Singapore Armed Forces</span> &middot; Military Specialist
+      <span class="xp-title">Singapore Armed Forces</span> &middot; 3rd Sergeant
       <div class="role">2020 &ndash; 2022</div>
-      <p style="color:var(--text-dim); font-size:.92rem;">Led and supported assigned personnel,
-      responded to emergencies with speed and efficiency, and made reasoned decisions to foster
-      troop discipline and unity.</p>
+      <ul class="bullets">
+        <li>Led and supervised personnel, delegating responsibilities and coordinating team activities to achieve operational objectives.</li>
+        <li>Demonstrated leadership, effective communication, and decision-making while managing training activities and personnel in high-pressure environments.</li>
+      </ul>
     </div>
     <div class="timeline-item">
-      <span class="xp-title">Sopra Steria</span> &middot; Android Programmer
+      <span class="xp-title">Sopra Steria</span> &middot; Android Developer Intern
       <div class="role">2019</div>
-      <p style="color:var(--text-dim); font-size:.92rem;">Fulfilled client requests, produced
-      internal and customer-facing presentations, and collaborated with a professional team to
-      resolve project workflow issues.</p>
+      <ul class="bullets">
+        <li>Developed Android applications in Android Studio using functional and client requirements.</li>
+        <li>Collaborated on application troubleshooting, technical problem-solving, and improvements to development workflows.</li>
+        <li>Prepared project documentation and technical presentations for internal stakeholders and client-facing discussions.</li>
+        <li>Gathered user requirements and communicated project status with clients and engineering team members to support delivery.</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <section id="blog">
   <div class="wrap">
-    <h2 class="sec-title">Blog</h2>
-    <p class="sec-sub">Notes on my time at DigiPen and what I'm building in the project module.</p>
+    <h2 class="sec-title"><span class="numeral">IV.</span><span class="glitch" data-text="Blog">Blog</span></h2>
+    <div class="ornament" aria-hidden="true"><svg><use href="#laurel"/></svg><span class="gem"></span><svg class="flip"><use href="#laurel"/></svg></div>
+    <p class="sec-sub">How I approach data, analytics, and software engineering, and what my projects have taught me.</p>
 
-    <div class="blog-card">
-      <div class="blog-meta">DigiPen Life</div>
-      <h3>My Journey Through the RTIS Programme</h3>
-      <p>Coming from a Diploma in Multimedia &amp; Infocomm Technology at Nanyang Polytechnic, I
-      joined the Real-Time Interactive Simulation degree run jointly by the Singapore Institute
-      of Technology and DigiPen Institute of Technology. The programme pushes hard on the
-      fundamentals such as data structures, computer graphics, math for games while expecting 
-      you to immediately apply them in engine and gameplay projects with a team, on a deadline.</p>
-      <p>One of the highlights so far was the Overseas Immersion Programme, where I spent a
-      trimester at DigiPen's Europe-Bilbao campus in Spain. Working alongside professors and
-      classmates from a completely different academic culture reshaped how I approach problems.
-      I came back more comfortable pitching ideas, asking questions in unfamiliar settings, and
-      collaborating with people who didn't necessarily share my first language.</p>
-    </div>
+    <div class="tilt-wrap">
+      <div class="blog-card tilt" data-tilt="3">
+        <div class="blog-meta">Data Science</div>
+        <h3>The Maths Behind the Models: From Coursework to Data Science</h3>
+        <p>My degree is in real-time interactive simulation, but much of the maths it teaches is
+        the same maths data science runs on. Linear algebra underpins both 3D transforms and the
+        matrix operations inside machine learning models. Probability and statistics are what turn
+        a pile of numbers into a conclusion you can defend. Algorithm analysis is what tells you
+        whether a pipeline will still run when the dataset is a hundred times bigger.</p>
+        <p>My Machine Learning coursework, together with Probability and Statistics, Data
+        Structures and Programming Massively Parallel Processors, gave me both sides of the work:
+        understanding how a model learns, and knowing how to make the computation behind it
+        efficient. Earning the AI Singapore AI4I Literacy in AI certification reinforced the
+        practical side, including how AI is applied in real organisations and where its limits
+        are.</p>
+        <p>What I've learned is that good data work starts with the question, not the model:
+        understand what the people asking actually need, check the data honestly, and pick the
+        simplest method that answers it well.</p>
+      </div>
 
-    <div class="blog-card">
-      <div class="blog-meta">Project Module</div>
-      <h3>Inside Pulse Protocol: Building a Custom C++/OpenGL Engine</h3>
-      <p>For my current project module, I'm working as a graphics programmer on Pulse Protocol, a
-      2D game engine built from scratch in C++ and OpenGL. My focus has been on the
-      graphics-facing systems: the rendering pipeline, texture and font handling, animation, and
-      wiring up UI through ImGui-based editor tools.</p>
-      <p>A big part of the work has been fitting these systems cleanly into our ECS
-      architecture, so gameplay and tooling code can query and render entities without caring how
-      the underlying graphics resources are managed. We use JSON serialization to save and load
-      scene and entity data, which has also meant building small in-editor tools so the rest of
-      the team can iterate without touching engine code directly.</p>
-      <p>The most valuable part of the module isn't just the rendering code, it's learning to
-      build something a whole team can rely on: keeping the editor stable while the renderer is
-      still changing underneath it, and communicating engine changes clearly so gameplay
-      programmers aren't blocked.</p>
+      <div class="blog-card tilt" data-tilt="3">
+        <div class="blog-meta">Business Intelligence</div>
+        <h3>Model the Data First: Lessons from the NYP Events Manager</h3>
+        <p>When I built the NYP Mobile Events Manager, the most important decisions weren't in the
+        interface. They were in the database. Before writing any screens, I designed the
+        relational data model in MySQL: how users, events, hosts and registrations relate to each
+        other, and which keys and constraints keep that data consistent.</p>
+        <p>That groundwork paid off everywhere. The Laravel/PHP REST APIs could serve and update
+        data cleanly, the React.js front end could rely on what it received, and questions like
+        "how many people registered for this event?" became simple queries instead of special
+        cases. That is the heart of business intelligence: a well-structured data model that
+        makes the right questions easy to answer.</p>
+        <p>The same habit carried into my work as a Systems Engineer at Sakura System Services,
+        where building client web applications started with understanding the business need
+        and the data behind it before turning to the technical solution.</p>
+      </div>
+
+      <div class="blog-card tilt" data-tilt="3">
+        <div class="blog-meta">Software Engineering</div>
+        <h3>Measure, Then Optimise: Engineering Lessons from Pulse Protocol</h3>
+        <p>On Pulse Protocol, I engineered the rendering systems for a custom C++/OpenGL engine
+        built on an Entity Component System architecture. Performance mattered, and the biggest
+        gains came from understanding where the cost actually was. Sprite batching and grouping
+        draws by shader and texture cut down GPU state changes and draw calls far more than
+        micro-optimising individual functions would have.</p>
+        <p>Just as important was building systems the rest of the team could rely on. Modular,
+        reusable components meant gameplay code didn't need to know how rendering worked, and
+        integrating graphics tools into an ImGui editor let designers and artists iterate without
+        touching engine code. That work involved collaborating across engineering, design and
+        art to ship a playable game.</p>
+        <p>I now bring the same approach to VectorSpace, a no-code 3D authoring platform built in
+        React, TypeScript and Three.js for an industry client: clear architecture, careful
+        debugging, and features shaped by what the user actually needs.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <footer id="contact">
   <div class="wrap">
-    <h2>Let's Talk</h2>
-    <p style="color:var(--text-dim);">Open to data science and software engineering opportunities.</p>
+    <h2 class="glitch" data-text="Let's Talk">Let's Talk</h2>
+    <div class="ornament center" aria-hidden="true"><svg><use href="#laurel"/></svg><span class="gem"></span><svg class="flip"><use href="#laurel"/></svg></div>
+    <p style="color:var(--text-dim);">Open to Data Scientist, Business Intelligence Developer and Software Engineer opportunities.</p>
     <div class="contact-row">
       <a href="mailto:jackgoh133@gmail.com">jackgoh133@gmail.com</a>
       <a href="tel:+6592348444">+65 9234 8444</a>
-      <a href="https://github.com/pinkaig" target="_blank">github.com/pinkaig</a>
+      <a href="https://github.com/pinkaig" target="_blank" rel="noopener">github.com/pinkaig</a>
+      <a href="https://www.linkedin.com/in/jackpkgoh" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <p class="fine">&copy; 2026 Jack Goh Pin Kai.</p>
   </div>
 </footer>
-
 
 <div id="lightbox" role="dialog" aria-modal="true">
   <img id="lightbox-img" src="" alt="">
 </div>
 
 <script>
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = matchMedia('(pointer: fine)').matches;
+
+  /* ---------- Hero particle network ---------- */
+  (function(){
+    const hero = document.getElementById('hero');
+    const c = document.getElementById('hero-canvas');
+    const ctx = c.getContext('2d');
+    let W, H, ps = [], mouse = {x:-999, y:-999}, raf = null;
+
+    function init(){
+      const r = c.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+      W = r.width; H = r.height;
+      c.width = W * dpr; c.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = Math.min(120, Math.round(W * H / 9000));
+      ps = Array.from({length:n}, () => ({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .6, vy: (Math.random() - .5) * .6
+      }));
+      if (reduceMotion) draw();
+    }
+
+    function draw(){
+      ctx.clearRect(0, 0, W, H);
+      for (const p of ps){
+        if (!reduceMotion){
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0 || p.x > W) p.vx *= -1;
+          if (p.y < 0 || p.y > H) p.vy *= -1;
+        }
+        const dx = mouse.x - p.x, dy = mouse.y - p.y, d = Math.hypot(dx, dy);
+        if (d < 150){
+          if (!reduceMotion){ p.x += dx * .01; p.y += dy * .01; }
+          ctx.strokeStyle = `rgba(250,204,21,${1 - d / 150})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+        }
+      }
+      for (let i = 0; i < ps.length; i++){
+        for (let j = i + 1; j < ps.length; j++){
+          const a = ps[i], b = ps[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d < 120){
+            ctx.strokeStyle = `rgba(99,102,241,${(1 - d / 120) * .7})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+      }
+      ctx.fillStyle = '#facc15';
+      for (const p of ps){ ctx.beginPath(); ctx.arc(p.x, p.y, 1.8, 0, Math.PI * 2); ctx.fill(); }
+    }
+
+    function loop(){ draw(); raf = requestAnimationFrame(loop); }
+
+    new ResizeObserver(init).observe(hero);
+    hero.addEventListener('mousemove', e => {
+      const r = hero.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+    });
+    hero.addEventListener('mouseleave', () => { mouse.x = mouse.y = -999; });
+
+    if (!reduceMotion){
+      // only animate while the hero is on screen
+      new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting){ if (!raf) raf = requestAnimationFrame(loop); }
+        else { cancelAnimationFrame(raf); raf = null; }
+      })).observe(hero);
+    }
+  })();
+
+  /* ---------- 3D tilt + glow cards ---------- */
+  document.querySelectorAll('.tilt').forEach(card => {
+    const max = parseFloat(card.dataset.tilt || 10);
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+      card.style.setProperty('--mx', x + 'px');
+      card.style.setProperty('--my', y + 'px');
+      if (reduceMotion) return;
+      const rx = (y / r.height - .5) * -max, ry = (x / r.width - .5) * max;
+      card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+
+  /* ---------- Scroll progress bar ---------- */
+  const bar = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? h.scrollTop / max * 100 : 0) + '%';
+  }
+  addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  /* ---------- Custom cursor (mouse users only) ---------- */
+  if (finePointer){
+    document.body.classList.add('cursor-on');
+    const dot = document.querySelector('.cur-dot'), ring = document.querySelector('.cur-ring');
+    let x = innerWidth / 2, y = innerHeight / 2, rx = x, ry = y;
+    addEventListener('mousemove', e => {
+      x = e.clientX; y = e.clientY;
+      dot.style.transform = `translate(${x}px,${y}px) translate(-50%,-50%)`;
+    });
+    (function follow(){
+      rx += (x - rx) * .18; ry += (y - ry) * .18;
+      ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+      requestAnimationFrame(follow);
+    })();
+    document.addEventListener('mouseover', e => {
+      ring.classList.toggle('big', !!e.target.closest('a, button, .proj-media img'));
+    });
+    document.addEventListener('mouseleave', () => { dot.style.opacity = ring.style.opacity = 0; });
+    document.addEventListener('mouseenter', () => { dot.style.opacity = ring.style.opacity = 1; });
+  }
+
+  /* ---------- Lightbox ---------- */
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lightbox-img');
-
   document.querySelectorAll('.proj-media img').forEach(img => {
     img.addEventListener('click', () => {
-      lbImg.src = img.src;
-      lbImg.alt = img.alt;
+      lbImg.src = img.src; lbImg.alt = img.alt;
       lightbox.classList.add('open');
     });
   });
-
   lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') lightbox.classList.remove('open');
-  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
 </script>
 </body>
 </html>
