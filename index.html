@@ -10,14 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #090d1a;
-    --bg-alt: #10162a;
-    --card: #161d33;
-    --border: #2d3656;
-    --text: #f8fafc;
-    --text-dim: #b6bfd8;
-    --accent: #facc15;
-    --accent-2: #6366f1;
+    --bg: #08275c;
+    --bg-alt: #0c3a86;
+    --hero: #0f52ba;
+    --card: #061d47;
+    --border: #2f6fd6;
+    --text: #f5eedc;
+    --text-dim: #ebe3cd;
+    --accent: #f7e38f;
+    --accent-2: #c8553d;
     --accent-3: #3b82f6;
     --max: 1080px;
   }
@@ -35,11 +36,11 @@
   .logo,.sec-title,.eyebrow,.numeral{font-family:'Cinzel','Trajan Pro',serif;}
 
   /* ---------- Italian touches: Roman numerals, laurel ornaments, marble ---------- */
-  .numeral{color:#a5b4fc; font-weight:500; margin-right:14px; letter-spacing:1px;}
+  .numeral{color:#f5eedc; font-weight:500; margin-right:14px; letter-spacing:1px;}
   .ornament{display:flex; align-items:center; gap:8px; color:var(--accent); margin:6px 0 18px;}
   .ornament svg{width:56px; height:21px; opacity:.85;}
   .ornament svg.flip{transform:scaleX(-1);}
-  .ornament .gem{width:7px; height:7px; background:currentColor; transform:rotate(45deg); flex:none;}
+  .ornament .gem{width:7px; height:7px; background:var(--accent-2); transform:rotate(45deg); flex:none;}
   .ornament.center{justify-content:center;}
   .ornament.lg svg{width:84px; height:32px;}
   .ornament.lg .gem{width:9px; height:9px;}
@@ -50,9 +51,9 @@
   /* ---------- Header ---------- */
   header{
     position:sticky; top:0; z-index:100;
-    background:rgba(12, 18, 40, 0.94);
+    background:rgba(6, 29, 71, 0.94);
     backdrop-filter:blur(10px);
-    border-bottom:2px solid rgba(250,204,21,.85);
+    border-bottom:2px solid rgba(247,227,143,.85);
   }
   nav.wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
   .logo{font-size:1.15rem; font-weight:700; color:var(--accent); text-decoration:none; letter-spacing:2px;}
@@ -65,24 +66,27 @@
     position:relative; overflow:hidden;
     padding:120px 0 100px;
     text-align:center;
-    background:
-      radial-gradient(circle at 20% 20%, rgba(250,204,21,.10), transparent 40%),
-      radial-gradient(circle at 80% 30%, rgba(99,102,241,.14), transparent 42%),
-      var(--bg);
+    /* lit from within, like light through a cut sapphire */
+    background:radial-gradient(ellipse 75% 85% at 50% 40%, var(--hero) 0%, #0c3f97 60%, var(--bg) 100%);
   }
-  #hero-canvas{position:absolute; inset:0; width:100%; height:100%; display:block;}
+  /* network fades out behind the hero text so it doesn't compete with reading */
+  #hero-canvas{
+    position:absolute; inset:0; width:100%; height:100%; display:block;
+    -webkit-mask-image:radial-gradient(ellipse 50% 60% at 50% 50%, rgba(0,0,0,.12) 60%, #000 100%);
+    mask-image:radial-gradient(ellipse 50% 60% at 50% 50%, rgba(0,0,0,.12) 60%, #000 100%);
+  }
   .hero .wrap{position:relative; z-index:1; pointer-events:none;}
   .hero .wrap a{pointer-events:auto;}
   .eyebrow{
-    display:inline-block; padding:6px 14px; border:1px solid rgba(250,204,21,.35);
-    background:rgba(250,204,21,.06);
+    display:inline-block; padding:6px 14px; border:1px solid rgba(247,227,143,.35);
+    background:rgba(247,227,143,.06);
     border-radius:999px; font-size:.8rem; color:var(--accent); letter-spacing:1px;
     text-transform:uppercase; margin-bottom:22px;
   }
   .hero h1{font-size:clamp(2.1rem, 5vw, 3.4rem); margin:0 0 14px; text-shadow:0 2px 24px rgba(0,0,0,.7);}
   .hero h1 em{
     font-style:italic; font-weight:500;
-    background:linear-gradient(90deg,var(--accent) 0%, #60a5fa 45%, var(--accent-2) 100%);
+    background:linear-gradient(90deg,var(--accent) 0%, #f5eedc 50%, var(--accent) 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
   .hero p{max-width:640px; margin:0 auto 32px; color:var(--text-dim); font-size:1.05rem; text-shadow:0 1px 12px rgba(0,0,0,.8);}
@@ -92,13 +96,13 @@
     transition:transform .15s, box-shadow .15s;
   }
   .btn:hover{transform:translateY(-2px);}
-  .btn-primary{background:var(--accent); color:#111827; box-shadow:0 8px 24px rgba(250,204,21,.22);}
-  .btn-outline{border:1px solid rgba(99,102,241,.55); background:rgba(9,13,26,.6); color:var(--text);}
-  .btn-outline:hover{border-color:var(--accent-2); box-shadow:0 8px 24px rgba(99,102,241,.14);}
+  .btn-primary{background:var(--accent); color:#061d47; box-shadow:0 8px 24px rgba(247,227,143,.22);}
+  .btn-outline{border:1px solid rgba(247,227,143,.55); background:rgba(6,29,71,.6); color:var(--text);}
+  .btn-outline:hover{border-color:var(--accent); box-shadow:0 8px 24px rgba(247,227,143,.14);}
 
   /* ---------- Sections ---------- */
   section{padding:80px 0;}
-  section:nth-of-type(odd){background:var(--bg-alt);}
+  section:nth-of-type(odd):not(.hero){background:var(--bg-alt);}
   .sec-title{font-size:2rem; font-weight:700; letter-spacing:1.5px; margin:0; color:var(--accent);}
   .sec-sub{color:var(--text-dim); margin:0 0 44px; max-width:600px;}
   .sub-title{margin:44px 0 18px; font-size:1.4rem;}
@@ -111,10 +115,10 @@
     position:relative;
     /* faint marble veins over the card colour */
     background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900'%3E%3Cfilter id='m' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0016 0.0045' numOctaves='5' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 .9 0 0 0 .7 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='.07'/%3E%3C/svg%3E") center / cover no-repeat,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900'%3E%3Cfilter id='m' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0016 0.0045' numOctaves='5' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 .9 0 0 0 .7 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='.042'/%3E%3C/svg%3E") center / cover no-repeat,
       var(--card);
     border:1px solid var(--border); border-radius:14px;
-    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    box-shadow:inset 0 1px 0 rgba(147,197,253,.22), 0 10px 30px rgba(0,0,0,.25);
   }
   .card{padding:26px;}
   .card h3{margin-top:0; font-size:1.1rem;}
@@ -122,17 +126,37 @@
   .card h3.skill-head{font-size:1rem; color:var(--accent);}
   .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
   .tag{
-    background:rgba(99,102,241,.12); color:#c7d2fe; border:1px solid rgba(99,102,241,.32);
+    background:rgba(247,227,143,.12); color:#f5eedc; border:1px solid rgba(247,227,143,.32);
     padding:4px 10px; border-radius:6px; font-size:.78rem; font-weight:600;
   }
   ul.bullets{margin:0; padding-left:20px; color:var(--text-dim); font-size:.92rem;}
   ul.bullets li{margin-bottom:6px;}
 
-  .timeline-item{border-left:2px solid var(--border); padding-left:20px; position:relative; margin-bottom:28px;}
-  .timeline-item::before{
-    content:''; position:absolute; left:-7px; top:6px; width:12px; height:12px;
-    border-radius:50%; background:var(--accent-2); box-shadow:0 0 0 4px rgba(99,102,241,.18);
+  .timeline-item{
+    border-left:2px solid var(--border);
+    border-image:linear-gradient(to bottom,var(--line1,var(--border)),var(--line2,var(--border))) 1;
+    padding-left:20px; position:relative; margin-bottom:28px;
   }
+  .timeline-item::before{
+    content:''; position:absolute; left:-8px; top:5px; width:14px; height:14px;
+    border-radius:50%; background:var(--chip,var(--accent-2)); box-shadow:0 0 0 2px var(--text);
+  }
+  /* Name gradients come from each organisation's logo. Dark reds and navy are lightened so every stop stays readable on sapphire. */
+  .timeline-item [class*="name-"]{
+    background-image:linear-gradient(90deg,var(--name));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .name-sit{--name:#fff 0%,#ff6b5e 100%;}
+  .name-digipen{--name:#f76478 0%,#fff 100%;}
+  .name-nyp{--name:#8fa3ff 0%,#ff7a70 100%;}
+  .name-sakura{--name:#ef90b2 0%,#ffd6e7 100%;}
+  .name-saf{--name:#ffcc00 0%,#ff5a64 100%;}
+  .name-sopra{--name:#ff5a66 0%,#f47216 100%;}
+  .org-sit{--chip:linear-gradient(90deg,#1d1d1b 0 45%,#da291c 45% 75%,#fff 75%); --line1:#da291c; --line2:#ba1128;}
+  .org-nyp{--chip:linear-gradient(90deg,#000b55 0 60%,#c70f0b 60%); --line1:#c70f0b; --line2:#c70f0b;}
+  .org-sakura{--chip:#ef90b2; --line1:#ef90b2; --line2:#ef90b2;}
+  .org-saf{--chip:linear-gradient(90deg,#000080 0 34%,#ffcc00 34% 67%,#ed2939 67%); --line1:#ffcc00; --line2:#ed2939;}
+  .org-sopra{--chip:linear-gradient(90deg,#231f20 0 34%,#db1d2b 34% 67%,#f47216 67%); --line1:#db1d2b; --line2:#f47216;}
   .timeline-item .role{color:var(--text-dim); font-size:.85rem; margin:2px 0 8px;}
   .xp-title{font-family:'Inter',sans-serif; font-weight:600; font-size:1.2rem; color:var(--accent);}
 
@@ -144,13 +168,13 @@
   .proj-head h3 a:hover{color:var(--accent);}
   .proj-link{
     display:inline-block; margin-top:16px; padding:8px 16px; border-radius:8px;
-    border:1px solid rgba(250,204,21,.5); background:rgba(250,204,21,.06);
+    border:1px solid rgba(247,227,143,.5); background:rgba(247,227,143,.06);
     color:var(--accent); text-decoration:none; font-weight:600; font-size:.88rem;
     transition:background .2s, transform .15s;
   }
-  .proj-link:hover{background:rgba(250,204,21,.14); transform:translateY(-2px);}
+  .proj-link:hover{background:rgba(247,227,143,.14); transform:translateY(-2px);}
   .proj-date{float:right; color:var(--text-dim); font-size:.85rem; font-weight:500;}
-  .proj-role{color:#818cf8; font-weight:600; font-size:.9rem; margin:4px 0 14px;}
+  .proj-role{color:var(--accent); font-weight:600; font-size:.9rem; margin:4px 0 14px;}
   .proj-media{padding:0 26px 26px; display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start;}
   .proj-media img{border-radius:10px; border:1px solid var(--border); max-height:340px; cursor:zoom-in;}
 
@@ -162,7 +186,7 @@
     box-shadow:0 12px 30px rgba(0,0,0,.35);
     transition:transform .2s, box-shadow .2s;
   }
-  .proj-split .proj-media img:hover{transform:scale(1.03); box-shadow:0 16px 40px rgba(250,204,21,.18);}
+  .proj-split .proj-media img:hover{transform:scale(1.03); box-shadow:0 16px 40px rgba(247,227,143,.18);}
   @media (max-width:760px){
     .proj-split{grid-template-columns:1fr;}
     .proj-split .proj-media{padding:0 26px 26px;}
@@ -187,10 +211,10 @@
   .tilt::after{
     content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
     opacity:0; transition:opacity .25s;
-    background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(250,204,21,.16), transparent 45%);
+    background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(247,227,143,.16), transparent 45%);
   }
   .tilt:hover::after{opacity:1;}
-  .tilt:hover{border-color:rgba(250,204,21,.6);}
+  .tilt:hover{border-color:rgba(247,227,143,.6);}
 
   /* ---------- Effect: glitch headings ---------- */
   .glitch{position:relative; display:inline-block;}
@@ -198,8 +222,8 @@
     content:attr(data-text); position:absolute; left:0; top:0; width:100%;
     opacity:0; pointer-events:none;
   }
-  .glitch::before{color:#60a5fa;}
-  .glitch::after{color:#f472b6;}
+  .glitch::before{color:#c8553d;}
+  .glitch::after{color:#f5eedc;}
   .glitch:hover::before{opacity:.9; animation:glitch1 .4s infinite linear alternate-reverse;}
   .glitch:hover::after{opacity:.9; animation:glitch2 .5s infinite linear alternate-reverse;}
   @keyframes glitch1{
@@ -225,11 +249,11 @@
   }
   .cur-dot{width:6px; height:6px; background:var(--accent);}
   .cur-ring{
-    width:34px; height:34px; border:2px solid rgba(250,204,21,.7);
-    box-shadow:0 0 14px rgba(250,204,21,.4);
+    width:34px; height:34px; border:2px solid rgba(247,227,143,.7);
+    box-shadow:0 0 14px rgba(247,227,143,.4);
     transition:width .2s, height .2s, background .2s, border-color .2s;
   }
-  .cur-ring.big{width:60px; height:60px; background:rgba(99,102,241,.15); border-color:var(--accent-2);}
+  .cur-ring.big{width:60px; height:60px; background:rgba(200,85,61,.15); border-color:var(--accent);}
   body.cursor-on, body.cursor-on *{cursor:none !important;}
   body.cursor-on .cur-dot, body.cursor-on .cur-ring{display:block;}
 
@@ -304,7 +328,7 @@
       C++ and JavaScript, building everything from relational data models and REST APIs to
       performance-critical systems.</p>
     <div class="btnrow">
-      <a class="btn btn-primary" href="Resume.pdf" target="_blank">Download Resume</a>
+      <a class="btn btn-primary" href="resume.pdf" target="_blank">Download Resume</a>
       <a class="btn btn-outline" href="#projects">View Projects</a>
       <a class="btn btn-outline" href="#blog">Read the Blog</a>
     </div>
@@ -320,13 +344,10 @@
     <div class="grid cols-2 tilt-wrap" style="margin-bottom:44px;">
       <div class="card tilt">
         <h3>Professional Summary</h3>
-        <p>Computer Science undergraduate seeking Data Scientist, Business Intelligence Developer,
-        or Software Engineer roles. Experienced in Python, SQL, C++ and JavaScript, with a
-        foundation in machine learning, probability and statistics, and linear algebra. Skilled
-        in relational database design and data modelling, building RESTful APIs and full-stack
-        applications, and debugging and optimising performance-critical systems. Experienced in
-        gathering requirements from clients and stakeholders and translating them into reliable,
-        data-driven software solutions.</p>
+        <p>Computer Science undergraduate with experience in Python, SQL, MySQL and software
+        development. Skilled in relational data modelling, database design, REST APIs and
+        React/TypeScript application development. Coursework in machine learning, statistics
+        and algorithms, with strengths in problem-solving, optimisation and data-driven systems.</p>
       </div>
     </div>
 
@@ -358,8 +379,9 @@
       <div class="card tilt">
         <h3 class="skill-head">Data &amp; Analytics</h3>
         <div class="tag-row">
-          <span class="tag">MySQL</span><span class="tag">Database Design</span>
-          <span class="tag">Data Modelling</span><span class="tag">Machine Learning (coursework)</span>
+          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">MySQL</span>
+          <span class="tag">Database Design</span><span class="tag">Data Modelling</span>
+          <span class="tag">Machine Learning and Statistics (coursework)</span>
         </div>
       </div>
       <div class="card tilt">
@@ -379,12 +401,12 @@
     </div>
 
     <h3 class="sub-title">Education</h3>
-    <div class="timeline-item">
-      <strong>Singapore Institute of Technology &amp; DigiPen Institute of Technology</strong>
+    <div class="timeline-item org-sit">
+      <strong class="xp-title"><span class="name-sit">Singapore Institute of Technology</span> &amp; <span class="name-digipen">DigiPen Institute of Technology</span></strong>
       <div class="role">Bachelor of Science with Honours in Computer Science in Real-Time Interactive Simulation &middot; Expected graduation 2028</div>
     </div>
-    <div class="timeline-item">
-      <strong>Nanyang Polytechnic</strong>
+    <div class="timeline-item org-nyp">
+      <strong class="xp-title name-nyp">Nanyang Polytechnic</strong>
       <div class="role">Diploma in Multimedia &amp; Infocomm Technology &middot; Graduated 2020</div>
     </div>
 
@@ -442,14 +464,17 @@
         </div>
         <div class="proj-body">
           <ul class="bullets">
-            <li>Collaborating with a team to develop a no-code 3D authoring platform for VThere using
-            React, TypeScript, Three.js and Vite.</li>
-            <li>Developing camera navigation, object selection, 3D transforms and orthographic views.</li>
-            <li>Implementing scene management and editor interactions for interactive 3D environments.</li>
+            <li>Developed a no-code 3D web application using React, TypeScript and Three.js, implementing
+            interactive editor tools, camera navigation and object transformations.</li>
+            <li>Built an automated 3D model optimisation pipeline using a Web Worker, reducing imported
+            GLB file size by up to 83% and triangle count by 74% without blocking the user interface.</li>
+            <li>Implemented on-demand WebGL rendering to eliminate an estimated 8,874 idle draw calls per
+            second, achieving a 0.9 ms median frame time with 300 objects.</li>
           </ul>
           <div class="tag-row">
             <span class="tag">React</span><span class="tag">TypeScript</span>
             <span class="tag">Three.js</span><span class="tag">Vite</span>
+            <span class="tag">WebGL</span><span class="tag">Web Workers</span>
           </div>
           <a class="proj-link" href="https://github.com/pinkaig/VectorSpace" target="_blank" rel="noopener">View on GitHub &rarr;</a>
         </div>
@@ -463,14 +488,14 @@
         </div>
         <div class="proj-body">
           <ul class="bullets">
-            <li>Engineered modular C++/OpenGL rendering systems using Entity Component System (ECS)
-            architecture and reusable components.</li>
-            <li>Optimised rendering with sprite batching, shader and texture grouping, animation and
-            GLSL shaders to reduce state changes and draw calls.</li>
-            <li>Implemented camera controls, coordinate transformations, viewport resizing, and
-            consistent 16:9 letterboxing for the game and editor.</li>
-            <li>Integrated graphics tools into an ImGui editor and collaborated across engineering,
-            design, and art disciplines to ship a playable game.</li>
+            <li>Engineered a modular C++/OpenGL 4.5 renderer with ECS integration, reusable
+            components and 15 GLSL shaders.</li>
+            <li>Optimised sprite batching for 10,000 sprites in 32 draw calls versus 10,000 without
+            batching (99.7% fewer calls in a modelled scenario).</li>
+            <li>Implemented half-resolution separable bloom, reducing calculated texture samples 18x
+            (839.8M to 46.7M) and saving 18.7 MB of GPU memory.</li>
+            <li>Built a reusable 2,000-particle VFX pool with zero heap allocations per frame, plus debug
+            shapes batched into 3 draw calls.</li>
           </ul>
           <div class="tag-row">
             <span class="tag">C++</span><span class="tag">OpenGL</span><span class="tag">GLSL</span>
@@ -516,8 +541,8 @@
     <div class="ornament" aria-hidden="true"><svg><use href="#laurel"/></svg><span class="gem"></span><svg class="flip"><use href="#laurel"/></svg></div>
     <p class="sec-sub">Where I've worked and what I did there.</p>
 
-    <div class="timeline-item">
-      <span class="xp-title">Sakura System Services</span> &middot; Systems Engineer
+    <div class="timeline-item org-sakura">
+      <span class="xp-title name-sakura">Sakura System Services</span> &middot; Systems Engineer
       <div class="role">2022 &ndash; 2023</div>
       <ul class="bullets">
         <li>Developed and maintained client web applications based on business needs and technical requirements.</li>
@@ -525,16 +550,16 @@
         <li>Supported software deployment, system maintenance, and customer issue resolution.</li>
       </ul>
     </div>
-    <div class="timeline-item">
-      <span class="xp-title">Singapore Armed Forces</span> &middot; 3rd Sergeant
+    <div class="timeline-item org-saf">
+      <span class="xp-title name-saf">Singapore Armed Forces</span> &middot; 3rd Sergeant
       <div class="role">2020 &ndash; 2022</div>
       <ul class="bullets">
         <li>Led and supervised personnel, delegating responsibilities and coordinating team activities to achieve operational objectives.</li>
         <li>Demonstrated leadership, effective communication, and decision-making while managing training activities and personnel in high-pressure environments.</li>
       </ul>
     </div>
-    <div class="timeline-item">
-      <span class="xp-title">Sopra Steria</span> &middot; Android Developer Intern
+    <div class="timeline-item org-sopra">
+      <span class="xp-title name-sopra">Sopra Steria</span> &middot; Android Developer Intern
       <div class="role">2019</div>
       <ul class="bullets">
         <li>Developed Android applications in Android Studio using functional and client requirements.</li>
@@ -664,7 +689,7 @@
         const dx = mouse.x - p.x, dy = mouse.y - p.y, d = Math.hypot(dx, dy);
         if (d < 150){
           if (!reduceMotion){ p.x += dx * .01; p.y += dy * .01; }
-          ctx.strokeStyle = `rgba(250,204,21,${1 - d / 150})`;
+          ctx.strokeStyle = `rgba(247,227,143,${1 - d / 150})`;
           ctx.lineWidth = 1;
           ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
         }
@@ -673,13 +698,13 @@
         for (let j = i + 1; j < ps.length; j++){
           const a = ps[i], b = ps[j], d = Math.hypot(a.x - b.x, a.y - b.y);
           if (d < 120){
-            ctx.strokeStyle = `rgba(99,102,241,${(1 - d / 120) * .7})`;
+            ctx.strokeStyle = `rgba(247,227,143,${(1 - d / 120) * .7})`;
             ctx.lineWidth = 1;
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }
         }
       }
-      ctx.fillStyle = '#facc15';
+      ctx.fillStyle = '#f7e38f';
       for (const p of ps){ ctx.beginPath(); ctx.arc(p.x, p.y, 1.8, 0, Math.PI * 2); ctx.fill(); }
     }
 
